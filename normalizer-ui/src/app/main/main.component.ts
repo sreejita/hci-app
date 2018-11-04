@@ -19,10 +19,14 @@ export class MainComponent implements OnInit {
   }
   getName() {
     //this.shouldShow = true;
-    this.uploadService.getName().subscribe( response => {
+    this.uploadService.getName().subscribe( (response: any) => {
       this.name = response.name;
       console.log(this.name);
     } );
   }
+
+    goToUserProfile() {
+      this.router.navigateByUrl('/profile');
+    }
 
 }

@@ -1,0 +1,14 @@
+<div class="container">
+  {{title}}
+  <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="filetext" name="filetext">
+  <input type="button" (click)="postText()"  class="btn btn-primary" value="Post"> <br>
+  {{filetext}}
+  <input type="button" (click)="getText()"  class="btn btn-primary" value="Get"> <br>
+  {{filecontents}}
+  <!--<div *ngIf="shouldShow">-->
+    <!--{{ name }}-->
+  <!--</div>-->
+
+</div>
