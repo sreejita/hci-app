@@ -8,7 +8,8 @@ import { MainComponent } from './main/main.component';
 import { FileComponent } from './file/file.component';
 import { UserComponent } from './user/user.component';
 import { Part1Component } from './part1/part1.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {IntroOneComponent} from './introOne/introOne.component';
 
 
 @NgModule({
@@ -17,13 +18,16 @@ import { FormsModule } from '@angular/forms';
     MainComponent,
     FileComponent,
       UserComponent,
-      Part1Component
+      Part1Component,
+      IntroOneComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+      ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

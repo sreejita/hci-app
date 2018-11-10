@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IntroOneService } from './introOne.service';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-intro-file',
@@ -13,10 +14,12 @@ export class IntroOneComponent implements OnInit {
 
   title = 'Welcome to HCI Lab';
   name = '';
-
-
-  constructor(private uploadService: IntroOneService,
-              private router: Router) { }
+  paymentMethod;
+  email;
+  constructor(private uploadService: IntroOneService, private route: ActivatedRoute,
+              private router: Router) {this.email = this.route.snapshot.params.email;
+              this.paymentMethod = this.route.snapshot.params.paymentMethod;
+  }
 
   ngOnInit() {
 
