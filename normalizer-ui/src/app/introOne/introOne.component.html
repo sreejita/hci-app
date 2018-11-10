@@ -1,0 +1,15 @@
+<div class="container">
+  {{title}}
+  <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="name" name="name">
+  {{name}}
+  <br>
+  <app-file></app-file>
+  <!--<input type="button" (click)="getName()"  class="btn btn-primary" value="Get Name"> <br> -->
+  <!--<div *ngIf="shouldShow">-->
+    <!--{{ name }}-->
+  <!--</div>-->
+  <br>
+  <input type="button" (click)="goToShop()"  class="btn btn-primary" value=">>">
+</div>

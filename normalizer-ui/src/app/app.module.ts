@@ -8,7 +8,7 @@ import { MainComponent } from './main/main.component';
 import { FileComponent } from './file/file.component';
 import { UserComponent } from './user/user.component';
 import { Part1Component } from './part1/part1.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,8 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
