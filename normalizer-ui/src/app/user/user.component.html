@@ -1,29 +1,55 @@
 <div class="jumbotron">
   <h2>{{title}}</h2>
-  <form>
+  <form [formGroup]="profileForm" (ngSubmit)="postUserProfile()">
     <div class="form-group row">
-      <label for="name" class="col-2 col-form-label">Name</label>
-      <div class="col-10">
-        <input class="form-control" type="text" id="name" placeholder="Enter full name" [(ngModel)]="name" name="name" required>
+      <label for="name" class="col-3 col-form-label">Name</label>
+      <div class="col-9">
+        <input class="form-control" type="text" id="name" placeholder="Enter full name" formControlName="name" name="name">
       </div>
     </div>
     <div class="form-group row">
-      <label for="emailaddr" class="col-2 col-form-label">Email address</label>
-      <div class="col-10">
-        <input required type="email" class="form-control" id="emailaddr" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email">
+      <label for="email" class="col-3 col-form-label">Email address</label>
+      <div class="col-9">
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" name="email">
       </div>
     </div>
     <div class="form-group row">
-      <label for="gender" class="col-2 col-form-label">Gender Identity</label>
-      <div class="col-10">
-        <select required class="form-control" id="gender" [(ngModel)]="gender" name="gender">
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
+      <label for="gender" class="col-3 col-form-label">Gender Identity</label>
+      <div class="col-9">
+        <select class="form-control" id="gender" formControlName="gender" name="gender">
+          <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
         </select>
       </div>
     </div>
-    <input type="submit" [disabled]="!name || !email || !gender" (click)="postUserProfile()" class="btn btn-primary" value="Submit and Continue">
+      <div class="form-group row">
+        <label for="age" class="col-3 col-form-label">Age</label>
+        <div class="col-9">
+          <input type="text" class="form-control" id="age"  placeholder="Age" formControlName="age" name="age">
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="degree" class="col-3 col-form-label">Degree Pursuing</label>
+      <div class="col-9">
+        <select class="form-control" id="degree" formControlName="degree" name="degree">
+          <option *ngFor="let degree of degrees" [ngValue]="degree">{{degree}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="income" class="col-3 col-form-label">Income</label>
+      <div class="col-9">
+        <input type="text" class="form-control" id="income"  placeholder="Income" formControlName="income" name="income">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="payment" class="col-3 col-form-label">Which Payment type do you generally use?</label>
+      <div class="col-9">
+        <select class="form-control" id="payment" formControlName="payment" name="payment">
+          <option *ngFor="let payment of paymentTypes" [ngValue]="payment">{{payment}}</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" [disabled]="!profileForm.valid"  class="btn btn-primary" value="Submit and Continue">
 
   </form>
 

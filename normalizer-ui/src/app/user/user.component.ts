@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -8,28 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  title = 'Participant Profile';
-  name;
-  email;
-  gender;
-  constructor(private userService: UserService,
-              private router: Router) { }
+   genders = [ 'Male', 'Female', 'None' ];
+   paymentTypes = ['Cash', 'Credit Card', 'Debit Card', 'Apple Pay', 'Google Pay', 'PayPal', 'Store Card/App'];
+   degrees = ['Undergraduate', 'Graduate', 'None'];
+   paymentMethod;
+   profileForm = this.fb.group({
+     name: ['', Validators.required],
+     age: ['', Validators.required],
+     email: ['', Validators.email],
+     gender: ['', Validators.required],
+     payment: ['', Validators.required],
+     income: ['', Validators.required],
+     degree: ['', Validators.required]
+    });
+  constructor(private userService: UserService, private route: ActivatedRoute,
+              private router: Router, private fb: FormBuilder) {
+      this.paymentMethod = this.route.snapshot.params.paymentMethod;
+  }
 
   ngOnInit() {
 
   }
 
   postUserProfile() {
-    console.log(this.name + " " + this.email + " " + this.gender);
-    const postdata = {
-      'name' : this.name,
-      'email' : this.email,
-      'gender' : this.gender};
-    console.log(JSON.stringify(postdata));
-    this.userService.postUserProfile(JSON.stringify(postdata)).subscribe(response => {
-        console.log(response);
-    });
-    this.router.navigate(['/part1', this.email]);
+    console.warn(this.profileForm.value);
+    const email = this.profileForm.value.email.match(/^([^@]*)@/)[1];
+   // Send data to the server then route
+    this.router.navigate(['/intro1', this.paymentMethod, email]);
   }
 
 }
