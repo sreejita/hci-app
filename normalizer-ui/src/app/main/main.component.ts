@@ -5,10 +5,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-file',
   templateUrl: './main.component.html',
-    template: `
-    <button (click)="cashClick()">Cash version</button>
-    <button (click)="dw1Click()">DW 1 version</button>
-    <button (click)="dw2Click()">DW 2 version</button>`,
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {

@@ -15,6 +15,7 @@ export class Part1Component implements OnInit {
   chair = '';
   table = '';
   email = '';
+  paymentMethod = '';
   constructor(private part1Service: Part1Service,
               private router: Router,
               private route: ActivatedRoute) { }
@@ -22,6 +23,7 @@ export class Part1Component implements OnInit {
   ngOnInit() {
     //getStuffFromBackend -> if email id exists set the above vars; else do nothing
     this.email = this.route.snapshot.params.email;
+    this.paymentMethod = this.route.snapshot.params.paymentMethod;
     console.log(this.email);
     this.chairDetails = this.part1Service.getProductByCategory('chair');
     this.tableDetails = this.part1Service.getProductByCategory('table');
@@ -35,6 +37,12 @@ export class Part1Component implements OnInit {
   setTable(table) {
       this.table = table;
       console.log('Table:', table);
+  }
+
+    postPart1() {
+
+      // Send data to the server then route
+      this.router.navigate(['/checkout1', this.paymentMethod, this.email]);
   }
 
 }

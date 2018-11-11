@@ -10,7 +10,7 @@ import { UserComponent } from './user/user.component';
 import { Part1Component } from './part1/part1.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IntroOneComponent} from './introOne/introOne.component';
-
+import {Checkout1Component} from './checkout1/checkout1.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import {IntroOneComponent} from './introOne/introOne.component';
       UserComponent,
       Part1Component,
       IntroOneComponent,
+      Checkout1Component
 
   ],
   imports: [

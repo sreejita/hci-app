@@ -1,0 +1,48 @@
+<div class="jumbotron">
+  <h2>{{title}}</h2>
+  <br>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Item Name</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of orderDetails">
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+    <tr class="table-active">
+      <td><span style="font-weight: bold" class="pull-right">Total</span> </td>
+      <td>{{total}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <input type="button" (click)="goToPart1()"  class="btn btn-primary pull-left" value="Back">
+    </div>
+    <div class="col-md-6">
+      <input *ngIf="paymentMethod === 'cash'" type="button" (click)="goToIntro2()"  class="btn btn-primary pull-right" value="Pay the cashier">
+      <input *ngIf="paymentMethod === 'dw1'" type="button" (click)="goToIntro2()"  class="btn btn-primary pull-right" value="Pay using Digital Wallet">
+      <input *ngIf="paymentMethod === 'dw2'" type="button" (click)="clickDw2()" class="btn btn-primary pull-right" value="Pay via Digital Wallet">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <div [hidden]="!dw2Click"  class="row pull-right">
+        <input [disabled]="true"  type="button" class="btn btn-secondary pull-right" value="$">
+        <input id="confirm" placeholder="Enter total amount" type="text" [(ngModel)]="enteredTotal">
+        <input [disabled]="'$'+enteredTotal!=total"  type="button" (click)="goToIntro2()" class="btn btn-primary pull-right" value="Confirm">
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+

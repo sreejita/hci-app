@@ -1,4 +1,17 @@
-<div class="container">
-  <h2 class="h2">Place Holder for Main Page</h2>
-  <input type="button" (click)="goToUserProfile()"  class="btn btn-primary" value=">>">
+<div class="jumbotron">
+  <h2>{{title}}</h2>
+  <br>
+  <h5>Select the payment type</h5>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <input type="button" (click)="cashClick()"  class="btn btn-primary" value="Cash">
+    </div>
+    <div class="col-md-4">
+      <input type="button" (click)="dw1Click()"  class="btn btn-primary" value="DW1">
+    </div>
+    <div class="col-md-4">
+      <input type="button" (click)="dw2Click()"  class="btn btn-primary" value="DW2">
+    </div>
+  </div>
 </div>

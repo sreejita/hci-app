@@ -1,15 +1,21 @@
-<div class="container">
-  {{title}}
-  <input type="text" class="form-control" id="name"
-         required
-         [(ngModel)]="name" name="name">
-  {{name}}
+<div class="jumbotron">
+  <h2>{{title}}</h2>
   <br>
-  <app-file></app-file>
-  <!--<input type="button" (click)="getName()"  class="btn btn-primary" value="Get Name"> <br> -->
-  <!--<div *ngIf="shouldShow">-->
-    <!--{{ name }}-->
-  <!--</div>-->
+
+
+  <div class="card">
+    <h5 class="card-header">Financial Profile</h5>
+    <div class="card-body">
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
   <br>
-  <input type="button" (click)="goToShop()"  class="btn btn-primary" value=">>">
+  <div class="card">
+    <h5 class="card-header">Part1 Details</h5>
+    <div class="card-body">
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+  <br>
+  <input type="button" (click)="goToPart1()"  class="btn btn-primary pull-right" value="Proceed to Part 1">
 </div>

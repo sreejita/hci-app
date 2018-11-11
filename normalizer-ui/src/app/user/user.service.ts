@@ -7,9 +7,7 @@ import {HttpClient, HttpRequest} from '@angular/common/http';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  getName() {
-    return this.http.get('/api/name');
-  }
+
   postUserProfile(postdata) {
       const formdata: FormData = new FormData();
 

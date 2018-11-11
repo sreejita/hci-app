@@ -1,38 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { IntroOneService } from './introOne.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-intro-file',
   templateUrl: './introOne.component.html',
-    template: `
-    <button (click)="goToShop()">Proceed to Experiment-1 Part-1</button>`,
   styleUrls: ['./introOne.component.css']
 })
 export class IntroOneComponent implements OnInit {
 
-  title = 'Welcome to HCI Lab';
-  name = '';
+  title = 'Introduction to Part1 of the experiment';
   paymentMethod;
   email;
-  constructor(private uploadService: IntroOneService, private route: ActivatedRoute,
-              private router: Router) {this.email = this.route.snapshot.params.email;
+  constructor(private introOneService: IntroOneService, private route: ActivatedRoute,
+              private router: Router) {
               this.paymentMethod = this.route.snapshot.params.paymentMethod;
+              this.email = this.route.snapshot.params.email;
   }
 
   ngOnInit() {
 
   }
-  getName() {
-    this.uploadService.getName().subscribe( (response: any) => {
-      this.name = response.name;
-      console.log(this.name);
-    } );
-  }
 
-    goToShop() {
-        this.router.navigateByUrl('/part1/email');
-    }
+  goToPart1() {
+      //call service to mark that user started part1
+      this.router.navigate(['/part1', this.paymentMethod, this.email]);
+  }
 
 }
