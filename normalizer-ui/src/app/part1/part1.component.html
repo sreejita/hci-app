@@ -5,44 +5,66 @@
   <h4>Select one item from each category</h4>
   <br>
   <form>
-    <h5>Chair</h5>
-    <div class="form-group row">
-      <div class="col-md-4 box"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail"><input type="radio" name="chk1" value="val1" autocomplete="off" (click)="setChair('val1')" [(ngModel)]="chair"></label></div>
-      <div class="col-md-4 box"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png" alt="..." class="img-thumbnail"><input type="radio" name="chk1" value="val2" autocomplete="off" (click)="setChair('val2')" [(ngModel)]="chair"></label></div>
-      <div class="col-md-4 box"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" alt="..." class="img-thumbnail"><input type="radio" name="chk1"  value="val3" autocomplete="off" (click)="setChair('val3')" [(ngModel)]="chair"></label></div>
+    <div class="card h-100">
+      <div class="card-header"><h5>Chair<sup style="color: red" [hidden]="chair">*</sup></h5></div>
+      <div class="card-body">
+        <div class="form-group row">
+          <div class="col-md-4 box" *ngFor="let chairitem of chairDetails">
+
+            <div class="card h-100" style="width: 18rem;">
+              <div class="h-50 d-inline-block">
+                <img class="h-100 card-img-top" src={{chairitem.imagename}} alt="Card image cap">
+              </div>
+
+              <div class="card-body h-50 d-inline-block">
+                <div class="h-75">
+                  <h5 class="card-title"><span class="pull-left">{{ chairitem.name}}</span><span class="pull-right">{{ chairitem.price }}</span></h5>
+                  <br>
+
+                  <p class="card-text">{{ chairitem.description }}</p>
+                </div>
+                <div class="h-25">
+                  <input type="radio" name={{chairitem.name}} value={{chairitem.name}} autocomplete="off" (click)="setChair(chairitem.name)" [(ngModel)]="chair">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
     <br>
-    <h5>Table</h5>
-    <div class="form-group row">
-      <div class="col-md-4 box"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png" alt="..." class="img-thumbnail"><input type="radio" name="chk2" value="val1" autocomplete="off" (click)="setTable('val1')" [(ngModel)]="table"></label></div>
-      <div class="col-md-4 box"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png" alt="..." class="img-thumbnail"><input type="radio" name="chk2" value="val2" autocomplete="off" (click)="setTable('val2')" [(ngModel)]="table"></label></div>
-      <div class="col-md-4 box"><label class="btn btn-primary"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png" alt="..." class="img-thumbnail"><input type="radio" name="chk2"  value="val3" autocomplete="off" (click)="setTable('val3')" [(ngModel)]="table"></label></div>
+    <div class="card h-100">
+      <div class="card-header"><h5>Table<sup style="color: red" [hidden]="table">*</sup></h5></div>
+      <div class="card-body">
+        <div class="form-group row">
+          <div class="col-md-4 box" *ngFor="let tableitem of tableDetails">
+
+            <div class="card h-100" style="width: 18rem;">
+              <div class="h-50 d-inline-block">
+                <img class="h-100 card-img-top" src={{tableitem.imagename}} alt="Card image cap">
+              </div>
+
+              <div class="card-body h-50 d-inline-block">
+                <div class="h-75">
+                  <h5 class="card-title"><span class="pull-left">{{ tableitem.name}}</span><span class="pull-right">{{ tableitem.price }}</span></h5>
+                  <br>
+
+                  <p class="card-text">{{ tableitem.description }}</p>
+                </div>
+                <div class="h-25">
+                  <input type="radio" name={{tableitem.name}} value={{tableitem.name}} autocomplete="off" (click)="setTable(tableitem.name)" [(ngModel)]="table">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    <button type="submit" (click)="postPart1()" class="btn btn-primary">Submit and Continue</button>
+    <br>
+    <button type="submit" [disabled]="!chair || !table" (click)="postPart1()" class="btn btn-primary">Submit and Continue</button>
   </form>
-  <!--form>
-    <div class="form-group row">
-      <label for="name" class="col-2 col-form-label">Name</label>
-      <div class="col-10">
-        <input required class="form-control" type="text" id="name" placeholder="Enter full name" [(ngModel)]="name" name="name">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="emailaddr" class="col-2 col-form-label">Email address</label>
-      <div class="col-10">
-        <input required type="email" class="form-control" id="emailaddr" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="gender" class="col-2 col-form-label">Gender Identity</label>
-      <div class="col-10">
-        <select required class="form-control" id="gender" [(ngModel)]="gender" name="gender">
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" (click)="postUserProfile()" class="btn btn-primary">Submit and Continue</button>
-  </form-->
 </div>
