@@ -15,7 +15,7 @@ export class Checkout1Component implements OnInit {
   email;
   orderDetails: Product[];
   total;
-  dw2Click : boolean;
+  dw2Click: boolean;
   enteredTotal;
   constructor(private checkout1Service: Checkout1Service, private route: ActivatedRoute,
               private router: Router) {

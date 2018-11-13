@@ -3,5 +3,6 @@ export interface Product {
     description: string;
     price: string;
     imagename: string;
+    category: string;
     //add category,exp no. etc.
 }
