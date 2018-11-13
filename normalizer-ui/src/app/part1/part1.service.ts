@@ -55,63 +55,63 @@ export class Part1Service {
             description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             price: '$45',
             category: 'couch',
-            imagename: 'assets/images/chair2.jpg'
+            imagename: 'assets/images/couch1.jpg'
         },
         {
             name: 'Ergonomic Chair',
             description: '.......................................................',
             price: '$99',
             category: 'couch',
-            imagename: 'assets/images/chair3.jpg'
+            imagename: 'assets/images/couch2.jpg'
         },
         {
             name: 'Basic Table',
             description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             price: '$23',
             category: 'couch',
-            imagename: 'assets/images/coffeetable1.jpg'
+            imagename: 'assets/images/couch3.jpg'
         },
         {
             name: 'Adjustable Chair',
             description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             price: '$45',
             category: 'tv',
-            imagename: 'assets/images/chair2.jpg'
+            imagename: 'assets/images/TV1.jpg'
         },
         {
             name: 'Ergonomic Chair',
             description: '.......................................................',
             price: '$99',
             category: 'tv',
-            imagename: 'assets/images/chair3.jpg'
+            imagename: 'assets/images/TV2.jpg'
         },
         {
             name: 'Basic Table',
             description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             price: '$23',
             category: 'tv',
-            imagename: 'assets/images/coffeetable1.jpg'
+            imagename: 'assets/images/TV3.jpg'
         },
         {
             name: 'Adjustable Chair',
             description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             price: '$45',
             category: 'cabinet',
-            imagename: 'assets/images/chair2.jpg'
+            imagename: 'assets/images/storagecabinet2.jpg'
         },
         {
             name: 'Ergonomic Chair',
             description: '.......................................................',
             price: '$99',
             category: 'cabinet',
-            imagename: 'assets/images/chair3.jpg'
+            imagename: 'assets/images/storagecabinet2.jpg'
         },
         {
             name: 'Basic Table',
             description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             price: '$23',
             category: 'cabinet',
-            imagename: 'assets/images/coffeetable1.jpg'
+            imagename: 'assets/images/storagecabinet3.jpg'
         }
     ];
     //products: Product[];
