@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Checkout1Service } from './checkout1.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../models/part1.interface';
@@ -11,9 +11,9 @@ import {Product} from '../models/part1.interface';
 export class Checkout1Component implements OnInit {
 
   title = 'Payment';
-  paymentMethod;
-  email;
-  orderDetails: Product[];
+  @Input() paymentMethod;
+  @Input() email;
+  @Input() selectedProducts: Product[];
   total;
   dw2Click: boolean;
   enteredTotal;
@@ -24,13 +24,13 @@ export class Checkout1Component implements OnInit {
   }
 
   ngOnInit() {
-      this.orderDetails = this.checkout1Service.getOrderDetails(this.paymentMethod, this.email);
-      this.total = this.checkout1Service.getTotal(this.paymentMethod, this.email);
+      // this.selectedProducts = this.checkout1Service.getOrderDetails(this.paymentMethod, this.email);
+      this.total = this.checkout1Service.getTotal(this.selectedProducts);
+      console.log(this.total);
   }
 
   goToPart1() {
-      //call service to mark that user went back
-      //call service to go to saved options in part1
+      this.router.navigate(['/part1' , this.paymentMethod, this.email]);
   }
 
   goToIntro2() {
@@ -40,10 +40,8 @@ export class Checkout1Component implements OnInit {
       this.router.navigate(['/part2', this.paymentMethod, this.email]);
     }
 
-    clickDw2(){
+    clickDw2() {
       this.dw2Click = true;
       console.log(this.total);
     }
-
-
 }

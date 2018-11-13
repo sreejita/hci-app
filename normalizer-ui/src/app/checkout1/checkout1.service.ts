@@ -6,8 +6,8 @@ import {Product} from '../models/part1.interface';
   providedIn: 'root'
 })
 export class Checkout1Service {
-
   constructor(private http: HttpClient) { }
+
   getOrderDetails(paymentMethod, email) {
     //
       const products: Product[] = [
@@ -29,7 +29,15 @@ export class Checkout1Service {
 
       return products;
   }
-  getTotal(paymentMethod, email) {
-    return '$68';
+  // getTotal(paymentMethod, email) {
+  //   return '$68';
+  // }
+
+  getTotal(selectedProducts: Product[]) {
+    let total = 0;
+    selectedProducts.forEach((product: Product) => {
+        total = total +  Number(product.price.replace('$', ''));
+    });
+    return '$' + total;
   }
 }

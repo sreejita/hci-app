@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="!checkout">
   <h2>{{title}}</h2>
   <br>
   <br>
@@ -33,3 +33,4 @@
      <input type="submit" [disabled]="!dataForm.valid"  class="btn btn-primary" value="Submit and Continue">
   </form>
 </div>
+<app-checkout1 *ngIf="checkout" [paymentMethod]="paymentMethod" [email]="email" [selectedProducts]="selectedProducts"></app-checkout1>
