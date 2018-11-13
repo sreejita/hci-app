@@ -31,17 +31,30 @@
     </div>
   </div>
   <br>
-  <div class="row">
-    <div class="col-md-6"></div>
-    <div class="col-md-6">
-      <div [hidden]="!dw2Click"  class="row pull-right">
-        <input [disabled]="true"  type="button" class="btn btn-secondary pull-right" value="$">
-        <input id="confirm" placeholder="Enter total amount" type="text" [(ngModel)]="enteredTotal">
-        <input [disabled]="'$'+enteredTotal!=total"  type="button" (click)="goToIntro2()" class="btn btn-primary pull-right" value="Confirm">
+  <div [hidden]="!dw2Click">
+    <div class="row">
+      <div class="col-md-9"></div>
+      <div class="col-md-3 pull-right">
+
+        <!--input [disabled]="true"  type="button" class="btn btn-secondary pull-right" value="$"-->
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">$</span>
+          </div>
+          <input id="confirm" class="form-control" placeholder="Enter total amount" type="text" [(ngModel)]="enteredTotal">
+        </div>
+
+
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input [disabled]="'$'+enteredTotal!=total"  type="button" (click)="goToIntro2()" class="btn-sm btn-primary pull-right" value="Confirm">
 
+      </div>
+    </div>
+
+  </div>
 
 
 </div>
