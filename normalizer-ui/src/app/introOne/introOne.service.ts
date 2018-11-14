@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,15 @@ import { HttpClient } from '@angular/common/http';
 export class IntroOneService {
 
   constructor(private http: HttpClient) { }
-  getName() {
-    return this.http.get('/api/name');
-  }
+    postData(content, email) {
+        const formdata: FormData = new FormData();
+
+        formdata.append('content', JSON.stringify(content));
+
+        const req = new HttpRequest('POST', 'api/write/' + email, formdata, {
+            reportProgress: true,
+            responseType: 'text'
+        });
+        return this.http.request(req);
+    }
 }

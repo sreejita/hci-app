@@ -24,7 +24,10 @@ export class IntroOneComponent implements OnInit {
 
   goToPart1() {
       //call service to mark that user started part1
-      this.router.navigate(['/part1', this.paymentMethod, this.email]);
+      const message = 'User Started Experiment 1';
+      this.introOneService.postData(message, this.email).subscribe(response => {
+          this.router.navigate(['/part1', this.paymentMethod, this.email]);
+      });
   }
 
 }

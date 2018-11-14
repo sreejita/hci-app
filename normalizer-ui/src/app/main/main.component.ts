@@ -35,13 +35,6 @@ export class MainComponent implements OnInit {
   ngOnInit() {
 
   }
-  getName() {
-    this.uploadService.getName().subscribe( (response: any) => {
-      this.name = response.name;
-      console.log(this.name);
-    } );
-  }
-
     goToUserProfile() {
       this.router.navigateByUrl('/profile');
     }

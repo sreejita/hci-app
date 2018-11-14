@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,4 @@ import { HttpClient } from '@angular/common/http';
 export class MainService {
 
   constructor(private http: HttpClient) { }
-  getName() {
-    return this.http.get('/api/name');
-  }
 }

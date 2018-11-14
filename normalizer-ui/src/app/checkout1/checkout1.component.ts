@@ -30,14 +30,19 @@ export class Checkout1Component implements OnInit {
   }
 
   goToPart1() {
-      this.router.navigate(['/part1' , this.paymentMethod, this.email]);
+      const message = 'User Clicked Back to Change Selection';
+      this.checkout1Service.postData(message, this.email).subscribe(response => {
+          this.router.navigate(['/part1' , this.paymentMethod, this.email]);
+      });
   }
 
   goToIntro2() {
      //call service to mark that user ended part1
-      console.log(this.total === this.enteredTotal);
-      console.log(this.enteredTotal);
-      this.router.navigate(['/part2', this.paymentMethod, this.email]);
+      this.checkout1Service.postData(this.selectedProducts, this.email).subscribe(response => {
+          console.log(this.total === this.enteredTotal);
+          console.log(this.enteredTotal);
+          this.router.navigate(['/part2', this.paymentMethod, this.email]);
+      });
     }
 
     clickDw2() {

@@ -3,85 +3,47 @@ package edu.wisc.entity.normalizer.controller;
 import com.google.gson.Gson;
 import edu.wisc.entity.normalizer.models.FileRead;
 import edu.wisc.entity.normalizer.models.User;
+import edu.wisc.entity.normalizer.services.CsvReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @RestController
 @RequestMapping("/api")
 public class FileViewController {
 
-    @RequestMapping(value="/name", method=RequestMethod.GET, produces = "application/json")
-    public String index() {
-        return "{\"name\": \"Welcome to HCI - APP!\"}";
-    }
-
-    @PostMapping("/file")
-    public void file(@RequestParam("filetext") String filetext) {
-        System.out.println(filetext);
-        Gson json = new Gson();
-        FileRead fileData = json.fromJson(filetext, FileRead.class);
-        System.out.println(fileData.getFileText());
-        File file = new File("append.txt");
-        FileWriter fw = null;
-        BufferedWriter br = null;
+    @Autowired
+    CsvReader csvReaderService;
+    @PostMapping(value="write/{email}", produces = "application/json")
+    @ResponseBody
+    public String writeLogs(@PathVariable("email") String email, @RequestParam("content") String content) throws IOException{
         try {
-            fw = new FileWriter(file, true);
-            br = new BufferedWriter(fw);
-            br.write(fileData.getFileText());
-            br.close();
+            String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+            System.out.println(email);
+            System.out.println(content);
+            File logFile = new File("src/main/resources/logs/" + email + ".txt");
+            FileWriter fw = new FileWriter(logFile, true); //the true will append the new data
+            fw.write(timeStamp + " - ");
+            fw.append(content);//appends the string to the file
+            fw.append('\n');
             fw.close();
-        } catch(Exception e) {
-            e.printStackTrace();
+            String message = "Logs written successfully";
+            return message;
+        } catch (IOException e) {
+            String message = "Error could not write logs \n " + e.toString();
+            return message;
         }
-        System.out.println(file.getAbsolutePath());
-
     }
 
-    @RequestMapping(value="/file", method=RequestMethod.GET, produces = "application/json")
-    public String fileRead() {
-        File file = new File("append.txt");
-        FileReader fr = null;
-        BufferedReader br = null;
-        StringBuffer buf = new StringBuffer();
-        try {
-            fr = new FileReader(file);
-            br = new BufferedReader(fr);
-            String str = "";
-            while((str = br.readLine()) != null) {
-                buf.append(str);
-            }
-
-            br.close();
-            fr.close();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return "{\"filecontents\":\"" + buf.toString() + "\"}";
-    }
-
-    @PostMapping("/profile")
-    public void postProfile(@RequestParam("userprofile") String postdata) {
-        System.out.println(postdata);
-        Gson json = new Gson();
-        User fileData = json.fromJson(postdata, User.class);
-        System.out.println(fileData.getName());
-        System.out.println(fileData.getEmail());
-        System.out.println(fileData.getGender());
-//        File file = new File("append.txt");
-//        FileWriter fw = null;
-//        BufferedWriter br = null;
-//        try {
-//            fw = new FileWriter(file, true);
-//            br = new BufferedWriter(fw);
-//            br.write(fileData.getFileText());
-//            br.close();
-//            fw.close();
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(file.getAbsolutePath());
-//
+    @RequestMapping(value = "/file/{exp}",  method = RequestMethod.GET, produces = "application/json")
+    public String getProducts(@PathVariable("exp") String experimentNumber) throws IOException {
+        System.out.println(experimentNumber);
+        File csvFile = new File("src/main/resources/csv/"+experimentNumber+".csv");
+        return CsvReader.getProductsFromCsv(csvFile);
+        //return "test";
     }
 
 }

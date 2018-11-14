@@ -45,6 +45,13 @@ export class Part1Component implements OnInit {
   getProductByCategory(category) {
       return this.part1Service.getProductByCategory(category);
   }
+
+  isDataAvailable() {
+      if (this.part1Service.products) {
+          return true;
+      }
+      return false;
+  }
   postPart1() {
     console.log(this.dataForm.value);
     this.selectedProducts = [];
@@ -53,6 +60,7 @@ export class Part1Component implements OnInit {
     }
     console.log(this.selectedProducts);
     this.checkout = true;
+
       // Send data to the server then route
       // Do Not send data as it is prone to changes!!!!
       // Use a common bidirectional service instead (Only one instance, provided in root)?

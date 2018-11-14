@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpRequest} from '@angular/common/http';
 import {Product} from '../models/part1.interface';
 
 @Injectable({
@@ -40,4 +40,15 @@ export class Checkout1Service {
     });
     return '$' + total;
   }
+    postData(content, email) {
+        const formdata: FormData = new FormData();
+
+        formdata.append('content', JSON.stringify(content));
+
+        const req = new HttpRequest('POST', 'api/write/' + email, formdata, {
+            reportProgress: true,
+            responseType: 'text'
+        });
+        return this.http.request(req);
+    }
 }

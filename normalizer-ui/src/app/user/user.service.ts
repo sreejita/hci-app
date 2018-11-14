@@ -8,16 +8,16 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  postUserProfile(postdata) {
-      const formdata: FormData = new FormData();
+    postUserProfile(content, email) {
+        const formdata: FormData = new FormData();
 
-      formdata.append('userprofile', postdata);
+        formdata.append('content', JSON.stringify(content));
 
-      const req = new HttpRequest('POST', 'api/profile', formdata, {
-          reportProgress: true,
-          responseType: 'text'
-      });
-      return this.http.request(req);
-  }
+        const req = new HttpRequest('POST', 'api/write/' + email, formdata, {
+            reportProgress: true,
+            responseType: 'text'
+        });
+        return this.http.request(req);
+    }
 
 }

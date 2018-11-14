@@ -6,13 +6,13 @@
   <br>
   <form [formGroup]="dataForm" (ngSubmit)="postPart1()">
     <div class="card h-100" *ngFor="let category of categories">
-      <div class="card-header"><h5>{{category}}<sup style="color: red" [hidden]="chair">*</sup></h5></div>
+      <div class="card-header"><h5>{{category}}</h5></div>
       <div class="card-body">
-        <div class="form-group row">
+        <div class="form-group row" *ngIf="isDataAvailable()">
           <div class="col-md-4 box" *ngFor="let product of getProductByCategory(category)">
             <div class="card h-100" >
               <div class="h-50 d-inline-block">
-                <img class="h-100 card-img-top" src={{product.imagename}} alt="Card image cap">
+                <img class="h-100 card-img-top" src='assets/images/{{product.imagename}}' alt="Card image cap">
               </div>
               <div class="card-body h-50 d-inline-block">
                 <div class="h-75">

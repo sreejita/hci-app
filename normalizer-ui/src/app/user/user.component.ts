@@ -35,7 +35,9 @@ export class UserComponent implements OnInit {
     console.warn(this.profileForm.value);
     const email = this.profileForm.value.email.match(/^([^@]*)@/)[1];
    // Send data to the server then route
-    this.router.navigate(['/intro1', this.paymentMethod, email]);
+    this.userService.postUserProfile(this.profileForm.value, email).subscribe(response => {
+        this.router.navigate(['/intro1', this.paymentMethod, email]);
+    });
   }
 
 }
