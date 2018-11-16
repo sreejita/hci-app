@@ -5,7 +5,7 @@ import {Product} from '../models/parts.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class Checkout1Service {
+export class Checkout2Service {
   constructor(private http: HttpClient) { }
 
   getOrderDetails(paymentMethod, email) {

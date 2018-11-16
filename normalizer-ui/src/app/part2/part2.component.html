@@ -2,9 +2,9 @@
   <h2>{{title}}</h2>
   <br>
   <br>
-  <h4>Select one item from each category</h4>
+  <h4>Select the an item from as many courses of your choice.</h4>
   <br>
-  <form [formGroup]="dataForm" (ngSubmit)="postPart1()">
+  <form [formGroup]="dataForm" (ngSubmit)="postPart2()">
     <div class="card" *ngFor="let category of categories">
       <div class="card-header"><h5>{{category}}</h5></div>
       <div class="card-body">
@@ -40,4 +40,4 @@
      <input type="submit" [disabled]="!dataForm.valid"  class="btn btn-primary" value="Submit and Continue">
   </form>
 </div>
-<app-checkout1 *ngIf="checkout" [paymentMethod]="paymentMethod" [email]="email" [selectedProducts]="selectedProducts"></app-checkout1>
+<app-checkout2 *ngIf="checkout" [paymentMethod]="paymentMethod" [email]="email" [selectedProducts]="selectedProducts"></app-checkout2>

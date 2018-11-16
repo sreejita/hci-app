@@ -5,17 +5,16 @@ import { Product } from '../models/parts.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class Part1Service {
+export class Part2Service {
 
     products: Product[];
-    //products: Product[];
 
   constructor(private http: HttpClient) {
-      this.getAllPart1Products();
+      this.getAllPart2Products();
   }
 
-  getAllPart1Products() {
-      this.http.get('/api/file/part1').subscribe((response: any) => {
+  getAllPart2Products() {
+      this.http.get('/api/file/part2').subscribe((response: any) => {
           this.products = response;
       });
   }

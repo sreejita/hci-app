@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Checkout1Service } from './checkout1.service';
+import { Checkout2Service } from './checkout2.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../models/parts.interface';
 
 @Component({
-  selector: 'app-checkout1',
-  templateUrl: './checkout1.component.html',
-  styleUrls: ['./checkout1.component.css']
+  selector: 'app-checkout2',
+  templateUrl: './checkout2.component.html',
+  styleUrls: ['./checkout2.component.css']
 })
-export class Checkout1Component implements OnInit {
+export class Checkout2Component implements OnInit {
 
   title = 'Payment';
   @Input() paymentMethod;
@@ -17,7 +17,7 @@ export class Checkout1Component implements OnInit {
   total;
   dw2Click: boolean;
   enteredTotal;
-  constructor(private checkout1Service: Checkout1Service, private route: ActivatedRoute,
+  constructor(private checkout2Service: Checkout2Service, private route: ActivatedRoute,
               private router: Router) {
               this.email = this.route.snapshot.params.email;
               this.paymentMethod = this.route.snapshot.params.paymentMethod;
@@ -25,23 +25,22 @@ export class Checkout1Component implements OnInit {
 
   ngOnInit() {
       // this.selectedProducts = this.checkout1Service.getOrderDetails(this.paymentMethod, this.email);
-      this.total = this.checkout1Service.getTotal(this.selectedProducts);
+      this.total = this.checkout2Service.getTotal(this.selectedProducts);
       console.log(this.total);
   }
 
-  goToPart1() {
+  goToPart2() {
       const message = 'User Clicked Back to Change Selection';
-      this.checkout1Service.postData(message, this.email).subscribe(response => {
-          this.router.navigate(['/part1' , this.paymentMethod, this.email]);
+      this.checkout2Service.postData(message, this.email).subscribe(response => {
+          this.router.navigate(['/part2' , this.paymentMethod, this.email]);
       });
   }
 
-  goToIntro2() {
+    goToEnd() {
      //call service to mark that user ended part1
-      this.checkout1Service.postData(this.selectedProducts, this.email).subscribe(response => {
-          console.log(this.total === this.enteredTotal);
-          console.log(this.enteredTotal);
-          this.router.navigate(['/intro2', this.paymentMethod, this.email]);
+      this.checkout2Service.postData(this.selectedProducts, this.email).subscribe(response => {
+
+          this.router.navigate(['/end', this.paymentMethod, this.email]);
       });
     }
 

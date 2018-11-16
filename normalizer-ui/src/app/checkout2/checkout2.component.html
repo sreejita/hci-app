@@ -1,0 +1,61 @@
+<div class="jumbotron">
+  <h2>{{title}}</h2>
+  <br>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Item Name</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of selectedProducts">
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+    <tr class="table-active">
+      <td><span style="font-weight: bold" class="pull-right">Total</span> </td>
+      <td>{{total}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <input type="button" (click)="goToPart2()"  class="btn btn-primary pull-left" value="Change Selection">
+    </div>
+    <div class="col-md-6">
+      <input *ngIf="paymentMethod === 'cash'" type="button" (click)="goToEnd()"  class="btn btn-primary pull-right" value="Pay the cashier">
+      <input *ngIf="paymentMethod === 'dw1'" type="button" (click)="goToEnd()"  class="btn btn-primary pull-right" value="Pay using Digital Wallet">
+      <input *ngIf="paymentMethod === 'dw2'" type="button" (click)="clickDw2()" class="btn btn-primary pull-right" value="Pay via Digital Wallet">
+    </div>
+  </div>
+  <br>
+  <div [hidden]="!dw2Click">
+    <div class="row">
+      <div class="col-md-9"></div>
+      <div class="col-md-3 pull-right">
+
+        <!--input [disabled]="true"  type="button" class="btn btn-secondary pull-right" value="$"-->
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">$</span>
+          </div>
+          <input id="confirm" class="form-control" placeholder="Enter total amount" type="text" [(ngModel)]="enteredTotal">
+        </div>
+
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input [disabled]="'$'+enteredTotal!=total"  type="button" (click)="goToEnd()" class="btn btn-primary pull-right" value="Confirm">
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+

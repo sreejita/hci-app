@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Part1Service } from './part1.service';
+import { Part2Service } from './part2.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Product} from '../models/parts.interface';
 import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-part1',
-  templateUrl: './part1.component.html',
-  styleUrls: ['./part1.component.css']
+  selector: 'app-part2',
+  templateUrl: './part2.component.html',
+  styleUrls: ['./part2.component.css']
 })
-export class Part1Component implements OnInit {
+export class Part2Component implements OnInit {
   navigationSubscription;
-  categories = ['chair',  'table', 'couch', 'tv', 'cabinet'];
-  title = 'Shop for your Living Room';
+  categories = ['appetizer',  'entree', 'beer', 'dessert', 'sides', 'drink'];
+  title = 'Build a meal';
   email = '';
   paymentMethod = '';
   checkout = false;
-  target = '';
   dataForm = this.fb.group({
-    chair: ['', Validators.required],
-    table: ['', Validators.required],
-    couch: ['', Validators.required],
-    tv: ['', Validators.required],
-    cabinet: ['', Validators.required],
+      appetizer: ['', Validators.required],
+      entree: ['', Validators.required],
+      beer: ['', Validators.required],
+      dessert: ['', Validators.required],
+      sides: ['', Validators.required],
+      drink: ['', Validators.required],
     });
   selectedProducts: Product[] = [];
-  constructor(private part1Service: Part1Service, private fb: FormBuilder,
+  constructor(private part2Service: Part2Service, private fb: FormBuilder,
               private router: Router, private route: ActivatedRoute) {
       this.navigationSubscription = this.router.events.subscribe((e: any) => {
           // If it is a NavigationEnd event re-initalise the component
@@ -40,22 +40,21 @@ export class Part1Component implements OnInit {
     this.checkout = false;
     this.email = this.route.snapshot.params.email;
     this.paymentMethod = this.route.snapshot.params.paymentMethod;
-    this.target = '/part1/' + this.paymentMethod + '/' + this.email + '/#';
     console.log(this.email);
   }
 
 
   getProductByCategory(category) {
-      return this.part1Service.getProductByCategory(category);
+      return this.part2Service.getProductByCategory(category);
   }
 
   isDataAvailable() {
-      if (this.part1Service.products) {
+      if (this.part2Service.products) {
           return true;
       }
       return false;
   }
-  postPart1() {
+  postPart2() {
     console.log(this.dataForm.value);
     this.selectedProducts = [];
     for (const category of this.categories) {

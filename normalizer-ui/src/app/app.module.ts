@@ -11,6 +11,10 @@ import { Part1Component } from './part1/part1.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IntroOneComponent} from './introOne/introOne.component';
 import {Checkout1Component} from './checkout1/checkout1.component';
+import {IntroTwoComponent} from './introTwo/introTwo.component';
+import {Part2Component} from './part2/part2.component';
+import {Checkout2Component} from './checkout2/checkout2.component';
+import {EndComponent} from './end/end.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import {Checkout1Component} from './checkout1/checkout1.component';
       UserComponent,
       Part1Component,
       IntroOneComponent,
-      Checkout1Component
+      Checkout1Component,
+      IntroTwoComponent,
+      Part2Component,
+      Checkout2Component,
+      EndComponent
 
   ],
   imports: [

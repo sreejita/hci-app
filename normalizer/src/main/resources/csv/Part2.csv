@@ -1,0 +1,13 @@
+category,name,description,price,imagename
+appetizer,Boneless Wings,Tender boneless chicken pieces deep fried in crisp bread powder.,$8.99 ,appetizer1.jpg
+appetizer,Double Crunch Buffalo Wings,"Twice battered and fried, these crisp outside, tender inside wings are super spicy and 100% organic",$10.49 ,appetizer2.jpg
+entree,Top Sirloin Steak,"Tender, juicy and freshly sauteed sirloin steak, medium rare made and sprinkled with red wine.",$11.99 ,entree1.jpg
+entree,Bourbon Street Steak,Big flavor from New Orleans. USDA select 100% fresh sirloin steak jazzed up with Cajun spices and garlic butter served sizzling on a cast iron platter with sauteed mushrooms and onions.,$14.99 ,entree2.jpg
+beer,Bud light,A 12-ounce bottle has 4.2 percent alcohol with a malt and hops ratio different from Budweiser,$3.25 ,beer1.jpg
+beer,Heineken,A 12-ounce bottle has 5 percent alcohol and is a pale lager beer.,$4.25 ,beer2.png
+dessert,Brownie Bite,The perfect size of a warm dark chocolate brownie with nuts served with vanilla ice cream and drizzled with hot fudge.,$2.59 ,dessert1.jpg
+dessert,Blue Ribbon Brownie,Warm dark chocolate brownie with nuts. Served with vanilla ice cream and drizzled with hot fudge.,$4.99 ,dessert2.jpg
+sides,House Salad,"Hearts of romaine, tomatoes, cucumbers, celery, carrots and balsamic vinaigrette.",$3.95 ,salad1.jpg
+sides,Caesar Salad,Hearts of romaine tossed with Parmesan and garlic croutons.,$4.95 ,salad2.jpg
+drink,Canned Soda,,$1.50 ,soda1.jpg
+drink,Boylan's Soda,,$2.50 ,soda2.jpg
