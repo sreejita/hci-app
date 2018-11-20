@@ -15,6 +15,8 @@ import {IntroTwoComponent} from './introTwo/introTwo.component';
 import {Part2Component} from './part2/part2.component';
 import {Checkout2Component} from './checkout2/checkout2.component';
 import {EndComponent} from './end/end.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import {EndComponent} from './end/end.component';
     HttpClientModule,
     FormsModule,
       ReactiveFormsModule,
+      FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -62,7 +62,10 @@ export class Part1Component implements OnInit {
         this.selectedProducts.push(this.dataForm.value[category]);
     }
     console.log(this.selectedProducts);
-    this.checkout = true;
+      this.part1Service.postData(this.selectedProducts, this.email).subscribe(response => {
+
+          this.checkout = true;
+      });
 
       // Send data to the server then route
       // Do Not send data as it is prone to changes!!!!

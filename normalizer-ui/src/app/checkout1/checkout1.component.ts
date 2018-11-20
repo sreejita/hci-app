@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import { Checkout1Service } from './checkout1.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../models/parts.interface';
+import {faWallet} from '@fortawesome/fontawesome-free-solid';
+import {faMoneyBillAlt} from '@fortawesome/fontawesome-free-solid';
+import {faArrowLeft} from '@fortawesome/fontawesome-free-solid';
 
 @Component({
   selector: 'app-checkout1',
@@ -11,6 +14,9 @@ import {Product} from '../models/parts.interface';
 export class Checkout1Component implements OnInit {
 
   title = 'Payment';
+  faWallet;
+  faCash;
+  faBack;
   @Input() paymentMethod;
   @Input() email;
   @Input() selectedProducts: Product[];
@@ -27,6 +33,9 @@ export class Checkout1Component implements OnInit {
       // this.selectedProducts = this.checkout1Service.getOrderDetails(this.paymentMethod, this.email);
       this.total = this.checkout1Service.getTotal(this.selectedProducts);
       console.log(this.total);
+      this.faWallet = faWallet;
+      this.faCash = faMoneyBillAlt;
+      this.faBack = faArrowLeft;
   }
 
   goToPart1() {

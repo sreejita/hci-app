@@ -28,4 +28,16 @@ export class Part1Service {
         });
       return selectedProducts;
   }
+
+    postData(content, email) {
+        const formdata: FormData = new FormData();
+
+        formdata.append('content', JSON.stringify(content));
+
+        const req = new HttpRequest('POST', 'api/write/' + email, formdata, {
+            reportProgress: true,
+            responseType: 'text'
+        });
+        return this.http.request(req);
+    }
 }

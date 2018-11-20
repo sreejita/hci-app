@@ -36,13 +36,16 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="income" class="col-3 col-form-label">Income</label>
-      <div class="col-9">
+      <label for="income" class="col-3 col-form-label">Income(monthly)</label>
+      <div class="col-9 input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">$</span>
+        </div>
         <input type="text" class="form-control" id="income"  placeholder="Income" formControlName="income" name="income">
       </div>
     </div>
     <div class="form-group row">
-      <label for="payment" class="col-3 col-form-label">Which Payment type do you generally use?</label>
+      <label for="payment" class="col-3 col-form-label">Which payment type do you use the most?</label>
       <div class="col-9">
         <select class="form-control" id="payment" formControlName="payment" name="payment">
           <option *ngFor="let payment of paymentTypes" [ngValue]="payment">{{payment}}</option>

@@ -22,12 +22,12 @@
   <br>
   <div class="row">
     <div class="col-md-6">
-      <input type="button" (click)="goToPart1()"  class="btn btn-primary pull-left" value="Change Selection">
+      <button (click)="goToPart2()"  class="btn btn-primary pull-left"><fa-icon [icon]="faBack"></fa-icon> Change Selection</button>
     </div>
     <div class="col-md-6">
-      <input *ngIf="paymentMethod === 'cash'" type="button" (click)="goToIntro2()"  class="btn btn-primary pull-right" value="Pay the cashier">
-      <input *ngIf="paymentMethod === 'dw1'" type="button" (click)="goToIntro2()"  class="btn btn-primary pull-right" value="Pay using Digital Wallet">
-      <input *ngIf="paymentMethod === 'dw2'" type="button" (click)="clickDw2()" class="btn btn-primary pull-right" value="Pay via Digital Wallet">
+      <button *ngIf="paymentMethod === 'cash'" (click)="goToIntro2()"  class="btn btn-primary pull-right"><fa-icon [icon]="faCash"></fa-icon> Pay the cashier</button>
+      <button *ngIf="paymentMethod === 'dw1'" (click)="goToIntro2()"  class="btn btn-primary pull-right"><fa-icon [icon]="faWallet"></fa-icon> Pay using Digital Wallet</button>
+      <button *ngIf="paymentMethod === 'dw2'" (click)="clickDw2()" class="btn btn-primary pull-right"><fa-icon [icon]="faWallet"></fa-icon> Pay via Digital Wallet</button>
     </div>
   </div>
   <br>
