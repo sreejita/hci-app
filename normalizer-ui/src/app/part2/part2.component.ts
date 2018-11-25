@@ -11,18 +11,17 @@ import {FormBuilder, Validators} from '@angular/forms';
 })
 export class Part2Component implements OnInit {
   navigationSubscription;
-  categories = ['appetizer',  'entree', 'beer', 'dessert', 'sides', 'drink'];
+  categories = ['fries', 'salad', 'steak', 'wine', 'dessert'];
   title = 'Build a meal';
   email = '';
   paymentMethod = '';
   checkout = false;
   dataForm = this.fb.group({
-      appetizer: ['', Validators.required],
-      entree: ['', Validators.required],
-      beer: ['', Validators.required],
+      fries: ['', Validators.required],
+      salad: ['', Validators.required],
+      steak: ['', Validators.required],
+      wine: ['', Validators.required],
       dessert: ['', Validators.required],
-      sides: ['', Validators.required],
-      drink: ['', Validators.required],
     });
   selectedProducts: Product[] = [];
   constructor(private part2Service: Part2Service, private fb: FormBuilder,

@@ -18,7 +18,7 @@ export class Part2Service {
           this.products = response;
       });
   }
-    getProductByCategory(category): Product[] {
+  getProductByCategory(category): Product[] {
       const selectedProducts: Product[] = [];
       this.products.forEach((product: Product) => {
           if (product.category === category) {
