@@ -30,6 +30,13 @@ export class Part2Component implements OnInit {
           // If it is a NavigationEnd event re-initalise the component
           if (e instanceof NavigationEnd) {
               this.checkout = false;
+              this.dataForm = this.fb.group({
+                  fries: [''],
+                  salad: [''],
+                  steak: ['', Validators.required],
+                  wine: [''],
+                  dessert: [''],
+              });
           }
       });
   }

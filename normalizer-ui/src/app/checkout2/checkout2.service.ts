@@ -36,7 +36,9 @@ export class Checkout2Service {
   getTotal(selectedProducts: Product[]) {
     let total = 0;
     selectedProducts.forEach((product: Product) => {
-        total = total +  Number(product.price.replace('$', ''));
+        if (product) {
+            total = total + Number(product.price.replace('$', ''));
+        }
     });
     return '$' + total;
   }
