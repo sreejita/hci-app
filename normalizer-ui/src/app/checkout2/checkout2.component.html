@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="!finish">
   <h2>{{title}}</h2>
   <br>
   <table class="table">
@@ -25,8 +25,8 @@
       <button (click)="goToPart2()"  class="btn btn-primary pull-left"><fa-icon [icon]="faBack"></fa-icon> Change Selection</button>
     </div>
     <div class="col-md-6">
-      <button *ngIf="paymentMethod === 'cash'" (click)="goToIntro2()"  class="btn btn-primary pull-right"><fa-icon [icon]="faCash"></fa-icon> Pay the cashier</button>
-      <button *ngIf="paymentMethod === 'dw1'" (click)="goToIntro2()"  class="btn btn-primary pull-right"><fa-icon [icon]="faWallet"></fa-icon> Pay using Digital Wallet</button>
+      <button *ngIf="paymentMethod === 'cash'" (click)="goToEnd()"  class="btn btn-primary pull-right"><fa-icon [icon]="faCash"></fa-icon> Pay the cashier</button>
+      <button *ngIf="paymentMethod === 'dw1'" (click)="goToEnd()"  class="btn btn-primary pull-right"><fa-icon [icon]="faWallet"></fa-icon> Pay using Digital Wallet</button>
       <button *ngIf="paymentMethod === 'dw2'" (click)="clickDw2()" class="btn btn-primary pull-right"><fa-icon [icon]="faWallet"></fa-icon> Pay via Digital Wallet</button>
     </div>
   </div>
@@ -55,7 +55,8 @@
     </div>
 
   </div>
-
-
+</div>
+<div class="jumbotron" *ngIf="finish">
+    <h1 class="h1">Thank You for Participating</h1>
 </div>
 

@@ -14,6 +14,7 @@ import {faArrowLeft} from '@fortawesome/fontawesome-free-solid';
 export class Checkout2Component implements OnInit {
 
   title = 'Payment';
+  finish = false;
   @Input() paymentMethod;
   @Input() email;
   @Input() selectedProducts: Product[];
@@ -50,7 +51,7 @@ export class Checkout2Component implements OnInit {
      //call service to mark that user ended part1
       this.checkout2Service.postData(this.selectedProducts, this.email).subscribe(response => {
 
-          this.router.navigate(['/end', this.paymentMethod, this.email]);
+          this.finish = true;
       });
     }
 
