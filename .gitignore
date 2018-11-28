@@ -1,2 +1,6 @@
 
 *.xml
+normalizer-ui/node_modules/@angular/common/locales/extra/xog.d.ts
+normalizer-ui/node_modules/@angular/common/locales/extra/xog.js
+normalizer-ui/node_modules/@angular/common/locales/extra/yav.d.ts
+normalizer-ui/node_modules/
