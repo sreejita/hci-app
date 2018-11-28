@@ -32,6 +32,7 @@ export class Checkout2Component implements OnInit {
   ngOnInit() {
       // this.selectedProducts = this.checkout1Service.getOrderDetails(this.paymentMethod, this.email);
       this.total = this.checkout2Service.getTotal(this.selectedProducts);
+      this.total = this.total.substring(0, this.total.indexOf('.') + 3);
       console.log(this.total);
       this.faWallet = faWallet;
       this.faCash = faMoneyBillAlt;

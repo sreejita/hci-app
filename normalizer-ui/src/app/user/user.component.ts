@@ -32,6 +32,7 @@ export class UserComponent implements OnInit {
   }
 
   postUserProfile() {
+    this.profileForm.addControl('initPaymentMethodIs', this.fb.control(this.paymentMethod));
     console.warn(this.profileForm.value);
     const email = this.profileForm.value.email.match(/^([^@]*)@/)[1];
    // Send data to the server then route

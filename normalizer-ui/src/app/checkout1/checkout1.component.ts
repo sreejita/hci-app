@@ -20,7 +20,7 @@ export class Checkout1Component implements OnInit {
   @Input() paymentMethod;
   @Input() email;
   @Input() selectedProducts: Product[];
-  total;
+  total: string;
   dw2Click: boolean;
   enteredTotal;
   constructor(private checkout1Service: Checkout1Service, private route: ActivatedRoute,
@@ -32,6 +32,7 @@ export class Checkout1Component implements OnInit {
   ngOnInit() {
       // this.selectedProducts = this.checkout1Service.getOrderDetails(this.paymentMethod, this.email);
       this.total = this.checkout1Service.getTotal(this.selectedProducts);
+      this.total = this.total.substring(0, this.total.indexOf('.') + 3);
       console.log(this.total);
       this.faWallet = faWallet;
       this.faCash = faMoneyBillAlt;

@@ -17,11 +17,11 @@ export class Part2Component implements OnInit {
   paymentMethod = '';
   checkout = false;
   dataForm = this.fb.group({
-      fries: ['', Validators.required],
-      salad: ['', Validators.required],
+      fries: [''],
+      salad: [''],
       steak: ['', Validators.required],
-      wine: ['', Validators.required],
-      dessert: ['', Validators.required],
+      wine: [''],
+      dessert: [''],
     });
   selectedProducts: Product[] = [];
   constructor(private part2Service: Part2Service, private fb: FormBuilder,
