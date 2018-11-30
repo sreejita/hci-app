@@ -9,23 +9,20 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  title = 'Welcome to HCI Lab';
+  title = 'Welcome to this HCI experiment';
   name = '';
   cash = 'cash';
   dw1 = 'dw1';
   dw2 = 'dw2';
     cashClick() {
-        //this.cash++;
         this.router.navigate(['/profile', this.cash]);
     }
 
     dw1Click() {
-        //this.dw1++;
         this.router.navigate(['/profile', this.dw1]);
     }
 
     dw2Click() {
-        //this.dw2++;
         this.router.navigate(['/profile', this.dw2]);
     }
 
