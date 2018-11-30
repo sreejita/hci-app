@@ -24,7 +24,7 @@ public class FileViewController {
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
             System.out.println(email);
             System.out.println(content);
-            File logFile = new File("src/main/resources/logs/" + email + ".txt");
+            File logFile = new File("/hci/logs/" + email + ".txt");
             FileWriter fw = new FileWriter(logFile, true); //the true will append the new data
             fw.write(timeStamp + " - ");
             fw.append(content);//appends the string to the file
@@ -41,7 +41,7 @@ public class FileViewController {
     @RequestMapping(value = "/file/{exp}",  method = RequestMethod.GET, produces = "application/json")
     public String getProducts(@PathVariable("exp") String experimentNumber) throws IOException {
         System.out.println(experimentNumber);
-        File csvFile = new File("src/main/resources/csv/"+experimentNumber+".csv");
+        File csvFile = new File("/hci/csv/"+experimentNumber+".csv");
         return CsvReader.getProductsFromCsv(csvFile);
         //return "test";
     }
